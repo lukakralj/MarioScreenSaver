@@ -5,8 +5,16 @@ import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
 
+/**
+ * Main (and only) screen of the app.
+ */
 public class MainActivity extends Activity {
 
+    /**
+     * Create activity with new GameView.
+     * 
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

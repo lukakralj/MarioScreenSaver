@@ -61,7 +61,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
     /**
      * Repaint the canvas.
-     * 
+     *
      * @param canvas
      */
     @Override
