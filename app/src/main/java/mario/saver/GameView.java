@@ -6,6 +6,9 @@ import android.graphics.Canvas;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
+/**
+ * Represents the main view of the game.
+ */
 public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
     private MainThread mainThread;
@@ -13,6 +16,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
     public GameView(Context context) {
         super(context);
+        // Create the character for the app.
         characterImage = new CharacterImage(BitmapFactory.decodeResource(getResources(), R.drawable.pixel_mario));
         getHolder().addCallback(this);
         mainThread = new MainThread(getHolder(), this);
@@ -24,13 +28,22 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
     }
 
+    /**
+     * When the surface is created the animation starts.
+     *
+     * @param holder
+     */
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
-
         mainThread.setRunning(true);
         mainThread.start();
     }
 
+    /**
+     * When surface is destroyed the animation stops.
+     *
+     * @param holder
+     */
     @Override
     public void surfaceDestroyed(SurfaceHolder holder) {
         boolean retry = true;
@@ -46,6 +59,11 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         }
     }
 
+    /**
+     * Repaint the canvas.
+     * 
+     * @param canvas
+     */
     @Override
     public void draw(Canvas canvas) {
         super.draw(canvas);
@@ -54,8 +72,10 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         }
     }
 
+    /**
+     * Update the (view and) character's properties.
+     */
     public void update() {
         characterImage.update();
-
     }
 }
