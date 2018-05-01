@@ -12,7 +12,7 @@ public class MainActivity extends Activity {
 
     /**
      * Create activity with new GameView.
-     * 
+     *
      * @param savedInstanceState
      */
     @Override

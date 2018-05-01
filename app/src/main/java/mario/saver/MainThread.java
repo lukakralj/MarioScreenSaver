@@ -3,12 +3,21 @@ package mario.saver;
 import android.graphics.Canvas;
 import android.view.SurfaceHolder;
 
+/**
+ * Main thread that controls the behaviour of the app.
+ */
 public class MainThread extends Thread {
     private SurfaceHolder surfaceHolder;
     private GameView gameView;
     private boolean running;
-    public static Canvas canvas;
+    private static Canvas canvas;
 
+    /**
+     * Create new main thread.
+     *
+     * @param surfaceHolder
+     * @param gameView
+     */
     public MainThread(SurfaceHolder surfaceHolder, GameView gameView) {
         super();
         this.surfaceHolder = surfaceHolder;
@@ -16,6 +25,9 @@ public class MainThread extends Thread {
         running = false;
     }
 
+    /**
+     * Starts the thread.
+     */
     @Override
     public void run() {
         while (running) {
@@ -44,6 +56,11 @@ public class MainThread extends Thread {
         }
     }
 
+    /**
+     * Set running to false to stop the thread.
+     * 
+     * @param isRunning
+     */
     public void setRunning(boolean isRunning) {
         running = isRunning;
     }
